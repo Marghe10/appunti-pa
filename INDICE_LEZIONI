@@ -1,0 +1,22 @@
+LEZIONE 1:
+- differenza tra while e for, come si usano
+- comando ENUMERATE
+
+LEZIONE 2:
+- Lavorare con i file
+- Convertire il contenuto di un file da stringhe a numeri: rstrip(), repr()
+
+LEZIONE 3:
+- eccezioni
+- scorrere su una lista
+- le funzioni della lista
+    - copia una lista
+    - append() e insert()
+    - index()
+    - pop()
+    - join()
+    - split()
+- le tuple
+
+LEZIONE FILE CSV:
+- contiene istruzioni sull'utilizzo e su cos'è un file CSV
