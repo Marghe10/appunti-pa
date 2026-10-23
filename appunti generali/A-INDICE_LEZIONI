@@ -4,7 +4,7 @@ LEZIONE 1:
 
 LEZIONE 2:
 - Lavorare con i file
-- Convertire il contenuto di un file da stringhe a numeri: rstrip(), repr()
+- Convertire il contenuto di un file da stringhe a numeri: rstrip(), repr() applicati ad una stringa
 
 LEZIONE 3:
 - eccezioni
