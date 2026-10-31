@@ -1,0 +1,106 @@
+                                            TEXT
+
+                1    COMANDI PIU USATI
+value	    Testo da mostrare	                                        value="Ciao Luca"
+size	    Dimensione dei caratteri in pixel logici	                size=24
+weight	    Spessore dei caratteri	                                    weight=ft.FontWeight.W_600
+color	    Colore del testo	                                        color=ft.Colors.BLUE
+no_wrap	    Impedisce l’andata a capo automatica	                    no_wrap=True
+text_align	Allineamento orizzontale del testo	                        text_align=ft.TextAlign.CENTER
+
+
+               2     SPOSTARE IL TESTO NELLA PAGINA
+Per centrare il testo orizzontalmente nella pagina, aggiungi:
+page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+Per centrarlo verticalmente nella pagina, aggiungi:
+page.vertical_alignment = ft.MainAxisAlignment.CENTER
+
+
+               3     COMANDI MENO USATI
+italic	            Attiva il corsivo	                                        italic=True
+overflow	        Gestisce il testo che non entra nello spazio disponibile	overflow=ft.TextOverflow.ELLIPSIS
+selectable	        Permette di selezionare il testo	                        selectable=True
+bgcolor	            Colore di sfondo del testo	                                bgcolor=ft.Colors.YELLOW
+font_family	        Font di sistema o personalizzato	                        font_family="Consolas"
+font_family_fallback	Font alternativi per i caratteri mancanti	            font_family_fallback=["Arial"]
+max_lines	        Numero massimo di righe	                                    max_lines=2
+style	            Applica uno stile più articolato	                        style=ft.TextStyle(...)
+theme_style	        Usa uno stile predefinito del tema	                        theme_style=ft.TextThemeStyle.TITLE_LARGE
+
+
+
+
+
+                                              BUTTON (myButton=ft.Button())
+| Parametro     | A cosa serve                                                | Esempio                                  |
+| ------------- | ----------------------------------------------------------- | ---------------------------------------- |
+| content       | Testo o controllo visualizzato nel bottone                  | content="Salva"                          |             |
+| bgcolor       | Colore dello sfondo                                         | bgcolor=ft.Colors.BLUE                   |
+| color         | Colore del testo e delle icone                              | color=ft.Colors.WHITE                    |
+| width         | Larghezza del bottone                                       | width=200                                |
+| height        | Altezza del bottone                                         | height=60                                |
+| elevation     | Elevazione visiva del bottone, che influenza l’ombra        | elevation=5                              |
+| on_click      | E il comando che uso per collegare al def con le istruzioni | on_click= nome_funzione                  |
+| disabled      | Disabilita il bottone                                       | disabled=True                            |
+| shape         | Forma del bottone                                           | ft.RoundedRectangleBorder(radius=10)     |
+| visible       | Mostra o nasconde il controllo                              | visible=False                            |
+| opacity       | Opacità: da trasparente a completamente visibile            | opacity=0.5                              |
+| expand        | Occupa spazio disponibile secondo il layout del contenitore | expand=True                              |
+| autofocus     | Richiede il focus iniziale                                  | autofocus=True                           |
+| url           | Collegamento da aprire al clic                              | url="https://flet.dev"                   |
+| style         | Personalizzazione avanzata dell’aspetto                     | style=ft.ButtonStyle(...)                |
+| icon          | Icona accanto al contenuto                                  | icon=ft.Icons.SAVE
+| icon_color    | Colore dell’icona                                           | icon_color=ft.Colors.YELLOW
+| icon_size     | Dimensione dell’icona                                       | 30
+
+pulsante = ft.Button(content="Salva", icon=ft.Icons.SAVE (o qualunque altra icona tu voglia),
+                     on_click=lambda e: print("Salvataggio!"))
+
+
+
+                                           ICON BUTTON
+ft.IconButton(icon=ft.Icons.ADD (o quello che vuoi), on_click=aumenta)
+Per vedere l'elendo di tutte le icone disponibili vai sul sito di flet, vai su Reference-->Types-->Enums-->Icons
+
+
+                                            CUPERTINO BUTTON
+E il pulsante senza bordi:
+myAddButton = ft.CupertinoButton(content="aggiungi", on_click=gestione_bottone)
+
+
+                                           TEXTFIELD myTextfiel=ft.TextField()
+| Parametro        | Esempio                               | Significato                                                                                    |
+| ---------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| value            | value="Luca"                          | Valore iniziale del campo                                                                      |
+| label            | label="Nome"                          | Etichetta che identifica il campo                                                              |
+| read_only        | read_only=True                        | Serve a fare in modo che tu non possa modificare il contenuto manualmente dalla pagina flet    |
+| hint_text        | hint_text="Inserisci il tuo nome"     | Suggerimento visualizzato quando il campo è vuoto, secondo lo stato dell’etichetta e del focus |
+| helper           | helper="Usa il tuo nome completo"     | Messaggio di aiuto sotto il campo                                                              |
+| error            | error="Questo campo è obbligatorio"   | Messaggio di errore sotto il campo                                                             |
+| counter          | counter="{value_length}/{max_length}" | Contatore personalizzato                                                                       |
+| max_length       | max_length=30                         | Numero massimo di caratteri inseribili                                                         |
+| hint_max_lines   | hint_max_lines=2                      | Numero massimo di righe del suggerimento                                                       |
+| helper_max_lines | helper_max_lines=2                    | Numero massimo di righe del messaggio di aiuto                                                 |
+| error_max_lines  | error_max_lines=2                     | Numero massimo di righe del messaggio di errore
+
+
+                                          CHECK BOX (lista spesa)
+import flet as ft
+def main(page: ft.Page):
+    myText = ft.TextField(label="aggiungi elemento:")   # value è il modo in cui si chiama il contenuto della casella di testo, label è solo l'etichetta che vedi prima di scrivere
+    myListView = ft.ListView(expand=True)
+    def gestione_bottone():
+        checkbox=ft.Checkbox(myText.value)
+        myListView.controls.append(checkbox)
+        page.update()
+
+    myAddButton = ft.CupertinoButton(content="aggiungi", on_click=gestione_bottone)
+
+    row1=ft.Row([myText, myAddButton], alignment=ft.MainAxisAlignment.CENTER)
+
+    page.controls.append(row1)
+    page.controls.append(myListView)
+
+
+ft.run(main)
