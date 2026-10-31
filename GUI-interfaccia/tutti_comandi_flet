@@ -70,6 +70,7 @@ myAddButton = ft.CupertinoButton(content="aggiungi", on_click=gestione_bottone)
 
 
                                            TEXTFIELD myTextfiel=ft.TextField()
+
 | Parametro        | Esempio                               | Significato                                                                                    |
 | ---------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | value            | value="Luca"                          | Valore iniziale del campo                                                                      |
