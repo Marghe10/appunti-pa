@@ -1,0 +1,18 @@
+Una volta che hai il database e cominci a scrivere codice tutto parte dalla "SELECT". La select è un'operazione con cui
+puoi estrarre dei dati specificando quali sono le colonne che voglio nel risultato sia quali sono le tabelle da cui
+voglio estrarle. Quindi la clausola base della select è "select from (colonne che vuoi estrarre da quella o quelle
+tabelle)". La select estrae gli attributi (ovvero le colonne) dalla "target list" ovvero l'insieme delle tabelle. Se la
+tabella è una sola basta il nome della tabella se c'è piu di una tabella si va a fare quello che viene chiamato un
+prodotto cartesiano o un "join" andando a specificare come combinare tra loro più tabelle. Il risultato di una quiry è
+sempre una tabella.
+
+Nel nostro primo esempio noi abbiamo una tabella "S" con tutti i suppliers (fornitori) una tabella "P" con tutti i
+prodotti e una tabella SP con quali fornitori forniscono quali prodotti e quanti ne forniscono.
+
+Apro una finestra per poter scrivere il mio codice SQL. faccio tasto destro sul nome del database che compare nella
+colonna a sinistra. Compare un menu a tendina, premo SQL editor e poi nuovo SQL script
+
+                                SELECT
+
+La select più semplice è quella di estrazione di tutti gli attributi:
+SELECT * FROM S --> selezioni tutti gli attributi dalla tabella S
