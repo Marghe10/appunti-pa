@@ -8,16 +8,19 @@ def main():
         cnx = mysql.connector.connect(user='root', password='', host='localhost', port="3306",
                                       database='products_suppliers')
 
-        print("se vedi questo messaggio mi sono collegato al database")
+        print("se vedi questo messaggio mi sono collegato al database\n\n")
 
         #MI FACCIO DARE DALLA CONNESSIONE IN CURSORE, SCRIVO LA QUERY, LA ESEGUO
 
-        cursore = cnx.cursor()
-        query= "SELECT * FROM S"
-        cursore.execute(query)
+        cursore_dizionario = cnx.cursor(dictionary=True)
+        query = """select `S#`, `SNAME` from S
+                    where CITY="Paris" """
 
-        for riga in cursore:
-            print(riga[1])
+        cursore_dizionario.execute(query)
+
+        for riga in cursore_dizionario:
+            print(riga["SNAME"])
+
 
 
 

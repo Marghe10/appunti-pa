@@ -37,3 +37,14 @@ Puoi mettere più di una condizione usando AND.
 
 SELECT * FROM S
 WHERE CITY="Paris" AND STATUS>15
+
+Importante ricordare che solitamente si usa where per specificare delle condizioni con operatori relazionali:
+<
+>
+=
+>=
+<=
+<> --> questo è il "diverso" in SQL
+AND
+OR
+NOT
