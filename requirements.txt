@@ -1,0 +1,2 @@
+flet~=1.0.4
+mysql-connector-python~=9.7.0

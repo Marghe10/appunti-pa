@@ -16,3 +16,24 @@ colonna a sinistra. Compare un menu a tendina, premo SQL editor e poi nuovo SQL 
 
 La select più semplice è quella di estrazione di tutti gli attributi:
 SELECT * FROM S --> selezioni tutti gli attributi dalla tabella S
+Se vuoi dire quale attributo tirare fuori dalla tabella puoi scrivere:
+
+SELECT `SNAME`, `SSTATUS`,`SCITY` FROM S
+
+Quindi per avere una tabella solo con determinati attributi devi scrivere i nomi degli attributi che ti servono
+aggiungendo il nome della tabella davanti, quindi NAME che viene dalla tabella S diventa `SNAME` mentre CITY che viene
+dalla tabella P diventa `PCITY`
+
+                                WHERE
+
+Aggiungendo WHERE puoi specificare delle clausole per estrarre solo determinate righe. Ad esempio puoi estrarre solo le
+righe della tabella S che hanno come città Parigi:
+
+SELECT * FROM S
+WHERE CITY="Paris"
+
+Paris va messo tra virgolette normali perchè è una stringa, è un attributo della tabella e non un comando.
+Puoi mettere più di una condizione usando AND.
+
+SELECT * FROM S
+WHERE CITY="Paris" AND STATUS>15
