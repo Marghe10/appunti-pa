@@ -11,16 +11,38 @@ def main():
         print("se vedi questo messaggio mi sono collegato al database\n\n")
 
         #MI FACCIO DARE DALLA CONNESSIONE IN CURSORE, SCRIVO LA QUERY, LA ESEGUO
-
+        print("\nquery 1")
         cursore_dizionario = cnx.cursor(dictionary=True)
-        query = """select `S#`, `SNAME` from S
-                    where CITY="Paris" """
+        query = """select * from s
+                   WHERE CITY = %s
+                   AND STATUS > %s """
 
-        cursore_dizionario.execute(query)
+        cursore_dizionario.execute(query,params=("Paris",0))
 
         for riga in cursore_dizionario:
-            print(riga["SNAME"])
+            print(riga)
 
+        print("\nquery 2")
+
+        query2="""SELECT `P#`, WEIGHT * 454 AS Grams
+                  FROM P"""
+
+        cursore_dizionario.execute(query2)
+
+        for riga in cursore_dizionario:
+            print(riga)
+
+
+        print("\nquery 3")
+
+        query3 = """SELECT S.`S#`, S.`CITY`
+                   FROM S
+                   ORDER BY `S#` ASC"""
+
+        cursore_dizionario.execute(query3)
+
+        for riga in cursore_dizionario:
+            print(riga)
 
 
 

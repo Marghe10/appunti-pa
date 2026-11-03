@@ -48,3 +48,52 @@ Importante ricordare che solitamente si usa where per specificare delle condizio
 AND
 OR
 NOT
+
+                                       %s
+
+Il %S si usa per non dover inserire gli attributi nelle query subito (S#=codice)
+Query = """SELECT `S#`, `CITY`
+           FROM S
+           WHERE CITY = %s
+           AND STATUS > %s
+Quando poi eseguo la query devo passare i parametri necessari:
+
+cursore_dizionario.execute(query,params=("paris",15))
+
+MI RACCOMANDO, se la mia query ha un solo parametro sostituito con %s quando inserisco l'attributo devo ricordarmi che
+devo mettere la virgola dopo anche se non c'è nient'altro.
+
+Query = """SELECT `S#`, `CITY`
+           FROM S
+           WHERE CITY = %s
+cursore_dizionario.execute(query,params=("paris",))
+
+Le parole vanno tra virgolette normali mentre i numeri no
+
+                                    DISTINCT
+SELECT DISTINCT P#
+FROM SP
+
+Significa che dalla tabella SP prende solo la colonna #P e l'aggiunta di "DISTINCT" serve a fare in modo che l'output
+non abbia risultati ripetuti, quindi se il codice S17 si ripete piu di una volta nella tabella l'output lo mostrerà una volta sola
+
+                                  CREA NUOVE COLONNE UTILI
+SELECT P.P#, P.WEIGHT*454 AS Grams
+FROM P
+
+Scrivere questo codice significa prendere la colonna P# dalla tabella P e creare una nuova colonna chiamata Grams che
+sarà data dai valori presenti nella colonna WEIGHT moltiplicati per 454.
+Il P. che metto davanti agli attributi in questo caso è facoltativo perchè sto prendendo tutti gli aggettivi da una solo
+tabella, ma se prendessi i vari valori da tabelle differenti, ad esempio FROM S,P allora devi precisare P. o S. prima
+dell'attributo cosi che pytohn sappia da quale tabella deve pescare
+
+
+                                ORDER BY
+Serve ad ordinare gli attributi che estraggo dalla tabella
+Query = """SELECT `S#`, `CITY`
+           FROM S,P
+           ORDER BY S.STATUS ASC    --> ASC=ASCENDENT=CRESCENTE
+                                    --> DESC=DESCENDENT=DECRESCENTE
+Puoi anche ordinare per più elementi semplicemente mettendo una virgola
+
+
