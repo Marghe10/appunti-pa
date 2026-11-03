@@ -7,9 +7,20 @@ weight	    Spessore dei caratteri	                                    weight=ft.
 color	    Colore del testo	                                        color=ft.Colors.BLUE
 no_wrap	    Impedisce l’andata a capo automatica	                    no_wrap=True
 text_align	Allineamento orizzontale del testo	                        text_align=ft.TextAlign.CENTER
+expand      Occupa spazio disponibile secondo il layout del contenitore expand=True
 
 
-               2     SPOSTARE IL TESTO NELLA PAGINA
+
+                2 SITUAZIONI PARTICOLARI
+
+SE VOGLIO METTERE IL MIO TESTO A SINISTRA DELLA PAGINA MA LA PAGINA è SETTATA PER AVERE TUTTI I TESTI IN CENTRO:
+    ft.Row(controls=[ft.Text("Strumenti", size=20)], alignment=ft.MainAxisAlignment.START)
+    La Row occupa la larghezza disponibile e dispone il testo all'inizio della riga, quindi a sinistra. Puoi lasciare
+    invariata self.page.horizontal_alignment = "center": gli altri elementi rimarranno centrati
+
+
+
+               3     SPOSTARE IL TESTO NELLA PAGINA
 Per centrare il testo orizzontalmente nella pagina, aggiungi:
 page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
@@ -17,7 +28,7 @@ Per centrarlo verticalmente nella pagina, aggiungi:
 page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
 
-               3     COMANDI MENO USATI
+               4     COMANDI MENO USATI
 italic	            Attiva il corsivo	                                        italic=True
 overflow	        Gestisce il testo che non entra nello spazio disponibile	overflow=ft.TextOverflow.ELLIPSIS
 selectable	        Permette di selezionare il testo	                        selectable=True
@@ -46,7 +57,6 @@ theme_style	        Usa uno stile predefinito del tema	                        t
 | shape         | Forma del bottone                                           | ft.RoundedRectangleBorder(radius=10)     |
 | visible       | Mostra o nasconde il controllo                              | visible=False                            |
 | opacity       | Opacità: da trasparente a completamente visibile            | opacity=0.5                              |
-| expand        | Occupa spazio disponibile secondo il layout del contenitore | expand=True                              |
 | autofocus     | Richiede il focus iniziale                                  | autofocus=True                           |
 | url           | Collegamento da aprire al clic                              | url="https://flet.dev"                   |
 | style         | Personalizzazione avanzata dell’aspetto                     | style=ft.ButtonStyle(...)                |
