@@ -44,6 +44,18 @@ def main():
         for riga in cursore_dizionario:
             print(riga)
 
+        print("\nquery 4")
+
+        query4 = """SELECT * FROM P
+                    WHERE `PNAME` LIKE '__C%'"""
+
+        cursore_dizionario.execute(query4)
+
+        for riga in cursore_dizionario:
+            print(riga)
+
+
+
 
 
     except mysql.connector.Error as err:
